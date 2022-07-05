@@ -17,7 +17,7 @@ Added a display register for outputting to three 7-segment displays, 3 bits each
 
 Complete instruction set:
 
-![Screenshot (1529)](https://user-images.githubusercontent.com/108677525/177326716-7d158a90-a953-430c-9cda-249d24c259d7.png)
+![Screenshot (1530)](https://user-images.githubusercontent.com/108677525/177327797-07f506d0-8221-4bee-a81f-e9b580f5df96.png)
 ![Screenshot (1527)](https://user-images.githubusercontent.com/108677525/177245915-2950f3b6-bcc7-4b19-a910-0f9de909aaf7.png)
 
 # The debugger, a.k.a. the visualizer
