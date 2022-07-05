@@ -26,7 +26,7 @@ Files in [debugger](debugger/) have the exact same files as the root folder, plu
 
 ![20220701_120442](https://user-images.githubusercontent.com/108677525/177268555-39d3afd4-efff-4651-b15b-2cc7bbe3dd2d.jpg)
 
-First off, the register contents. I soldered 117 LEDs into a 9 x 13 matrix, with 9 anodes each column connected, and 13 cathodes each row connected. An [inverted ring counter](debugger/ring_counter.vhd) loops through one row at time at super high speed, while the *when else* block at the end of the [main debugger file](debugger/debugger.vhd) determines which register will be outputted to the column of each row.
+First off, the register contents. I soldered 117 LEDs into a 9 x 13 matrix, with 9 anodes each column connected, and 13 cathodes each row connected. An [inverted ring counter](debugger/ring_counter.vhd) loops through one row at time at super high speed, while the *when else* block at the end of the [top-level entity](debugger/debugger.vhd) determines which register will be outputted to the column of each row.
 
 ![20220701_120458](https://user-images.githubusercontent.com/108677525/177270894-1eb5541b-4227-411d-8701-ef795e8b01e4.jpg)
 ![20220701_120513](https://user-images.githubusercontent.com/108677525/177270973-023c32ea-add5-446b-b040-0d55db353b76.jpg)
