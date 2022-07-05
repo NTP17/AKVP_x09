@@ -1,4 +1,4 @@
-# AKVP x09
+# AKVP x09, a 9-bit processor
 My take on HCMUT's Department of Electronics' 9-bit processor.
 
 Yes, you read it right. NINE bits, not EIGHT. I'm just doing what I was required to do.
@@ -18,5 +18,17 @@ Added a display register for outputting to three 7-segment displays, 3 bits each
 Complete instruction set:
 
 ![Screenshot (1526)](https://user-images.githubusercontent.com/108677525/177245903-edafb0e9-4710-4bcd-8b53-d4f1cbe3c69f.png)
-
 ![Screenshot (1527)](https://user-images.githubusercontent.com/108677525/177245915-2950f3b6-bcc7-4b19-a910-0f9de909aaf7.png)
+
+# The debugger, a.k.a. the visualizer
+
+Files in [debugger](debugger/) have the exact same files as the root folder, plus some extra components to aid in outputting all register contents, RAM contents, and control signals to [DE10-Standard](https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&No=1081)'s GPIOs. Since there are only 36 GPIO pins while the total number of outputs is 161 (13 x 9-bit registers + 28 control signals + 7 RAM address bits + 9 RAM content bits), I have to put together some external components to do the trick.
+
+![20220701_120442](https://user-images.githubusercontent.com/108677525/177268555-39d3afd4-efff-4651-b15b-2cc7bbe3dd2d.jpg)
+
+First off, the register contents. I soldered 117 LEDs into a 9 x 13 matrix, with 9 anodes each column connected, and 13 cathodes each row connected. An [inverted ring counter](debugger/ring_counter.vhd) loops through one row at time at super high speed, while the *when else* block at the end of the [main debugger file](debugger/debugger.vhd) determines which register will be outputted to the column of each row.
+
+![20220701_120458](https://user-images.githubusercontent.com/108677525/177270894-1eb5541b-4227-411d-8701-ef795e8b01e4.jpg)
+![20220701_120513](https://user-images.githubusercontent.com/108677525/177270973-023c32ea-add5-446b-b040-0d55db353b76.jpg)
+
+Outputting control signals and RAM stuff is relatively simpler. The [parallel-to-serial converter](debugger/PISO.vhd) utilizes DE10-Standard's internal 50 MHz clock to continuously generate three serial outputs: data input, shift clock, and output clock, which will then fed into respective inputs of 74HC595, which is chained together with more 74HC595's to output the serial data back to parallel, forming a 3-to-28 converter for control signals, and 3-to-16 for RAM.
