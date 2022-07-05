@@ -22,7 +22,7 @@ Complete instruction set:
 
 # The debugger, a.k.a. the visualizer
 
-Files in [debugger](debugger/) have the exact same files as the root folder, plus some extra components to aid in outputting all register contents, RAM contents, and control signals to [DE10-Standard](https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&No=1081)'s GPIOs. Since there are only 36 GPIO pins while the total number of outputs is 162 (13 x 9-bit registers + 29 control signals + 7 RAM address bits + 9 RAM content bits), I have to put together some external components to do the trick.
+[The debugger folder](debugger/) have the exact same files as the root folder, plus some extra components to aid in outputting all register contents, RAM contents, and control signals to [DE10-Standard](https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&No=1081)'s GPIOs. Since there are only 36 GPIO pins while the total number of outputs is 162 (13 x 9-bit registers + 29 control signals + 7 RAM address bits + 9 RAM content bits), I have to put together some external components to do the trick.
 
 ![20220701_120442](https://user-images.githubusercontent.com/108677525/177268555-39d3afd4-efff-4651-b15b-2cc7bbe3dd2d.jpg)
 
