@@ -11,7 +11,7 @@ Here are the requirements. All credit goes to Department of Electronics, Ho Chi 
 
 [Lab6_Digital_Design_Ver1.pdf](https://github.com/71-PTN/AKVP_x09/files/9043030/Lab6_Digital_Design_Ver1.pdf)
 
-Added a display register for outputting to three 7-segment displays, 3 bits each. It is obvious that base-8 or octal, must be used.
+I have added a display register for outputting to three 7-segment displays, 3 bits each. It is obvious that base-8 or octal, must be used.
 
 ![Screenshot (1525)](https://user-images.githubusercontent.com/108677525/177245727-c6c37ab4-9825-4b49-9555-618d30e03db5.png)
 
