@@ -1,5 +1,4 @@
 # AKVP x09, a 9-bit processor
-My take on HCMUT's Department of Electronics' 9-bit processor.
 
 Yes, you read it right. NINE bits, not EIGHT. I'm just doing what I was required to do.
 
