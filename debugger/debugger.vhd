@@ -4,13 +4,13 @@ use ieee.std_logic_1164.all;
 entity debugger is
 
 	port(                            PUL, EN, CK, RESET: in     std_logic;
-		                              reg_LEDs, LEDs_reg: out    std_logic_vector(8 downto 0);
-												  HEX2, HEX1, HEX0: out    std_logic_vector(6 downto 0);
-										CU_D, CU_O, RAM_D, RAM_O: out    std_logic;
-										                VCC, GND: out    std_logic;
+		                         reg_LEDs, LEDs_reg: out    std_logic_vector(8 downto 0);
+					   HEX2, HEX1, HEX0: out    std_logic_vector(6 downto 0);
+				   CU_D, CU_O, RAM_D, RAM_O: out    std_logic;
+						   VCC, GND: out    std_logic;
 	                                        CU_C, RAM_C: buffer std_logic;
-		  R0_s, R1_s, R2_s, R3_s, R4_s, R5_s, R6_s, R7_s,
-		                    IR_s,  A_s,  G_s, AD_s, DO_s: buffer std_logic);
+	     R0_s, R1_s, R2_s, R3_s, R4_s, R5_s, R6_s, R7_s,
+		               IR_s,  A_s,  G_s, AD_s, DO_s: buffer std_logic);
 
 end debugger;
 
@@ -20,16 +20,16 @@ component AKVP_x09 is
 
 	port(                       OSC, CLK, EXE, RSTN: in     std_logic;
 	                                     ADDR, DOUT: out    std_logic_vector(8 downto 0);
-													       DMID: buffer std_logic_vector(8 downto 0);
+						   DMID: buffer std_logic_vector(8 downto 0);
 	       IR, R0, R1, R2, R3, R4, R5, R6, R7, A, G: out    std_logic_vector(8 downto 0);
 	                                     H2, H1, H0: out    std_logic_vector(6 downto 0);
 	     IR_in, Z_flag, disp_in,
-		  R0_out, R1_out, R2_out, R3_out, R4_out, R5_out, R6_out, R7_out,
-		  G_out, DIN_out, incr_pc,
-		  R0_in, R1_in, R2_in, R3_in, R4_in, R5_in, R6_in, R7_in,
-		  A_in, G_in, AddSub, ADDR_in, DOUT_in, Done: out    std_logic;
-		                                         W_D: buffer std_logic;
-		                                        LEDs: out    std_logic_vector(8 downto 0));
+	     R0_out, R1_out, R2_out, R3_out, R4_out, R5_out, R6_out, R7_out,
+	     G_out, DIN_out, incr_pc,
+	     R0_in, R1_in, R2_in, R3_in, R4_in, R5_in, R6_in, R7_in,
+	     A_in, G_in, AddSub, ADDR_in, DOUT_in, Done: out    std_logic;
+		                                    W_D: buffer std_logic;
+		                                   LEDs: out    std_logic_vector(8 downto 0));
 
 end component;
 
@@ -42,10 +42,10 @@ end component;
 
 component PISO is
 
-	port(        PI: in     std_logic_vector(28 downto 0);
-	       INT, CLR: in     std_logic;
-			       CL: buffer std_logic;
-	         SO, LT: out    std_logic);
+	port(      PI: in     std_logic_vector(28 downto 0);
+	     INT, CLR: in     std_logic;
+		   CL: buffer std_logic;
+	       SO, LT: out    std_logic);
 
 end component;
 
@@ -231,16 +231,16 @@ begin
 
 	reg_LEDs <= IR_d when (pack = "0111111111111") else
 	            R0_d when (pack = "1011111111111") else
-			      R1_d when (pack = "1101111111111") else
-			      R2_d when (pack = "1110111111111") else
-			      R3_d when (pack = "1111011111111") else
-			      R4_d when (pack = "1111101111111") else
-			      R5_d when (pack = "1111110111111") else
-			      R6_d when (pack = "1111111011111") else
-			      R7_d when (pack = "1111111101111") else
-			      A_d  when (pack = "1111111110111") else
-			      G_d  when (pack = "1111111111011") else
-			      Ad_d when (pack = "1111111111101") else
-			      Do_d when (pack = "1111111111110") else (others => '0');
+		    R1_d when (pack = "1101111111111") else
+		    R2_d when (pack = "1110111111111") else
+		    R3_d when (pack = "1111011111111") else
+		    R4_d when (pack = "1111101111111") else
+		    R5_d when (pack = "1111110111111") else
+		    R6_d when (pack = "1111111011111") else
+		    R7_d when (pack = "1111111101111") else
+		    A_d  when (pack = "1111111110111") else
+		    G_d  when (pack = "1111111111011") else
+		    Ad_d when (pack = "1111111111101") else
+		    Do_d when (pack = "1111111111110") else (others => '0');
 
 end display;
